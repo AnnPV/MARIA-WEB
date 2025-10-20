@@ -257,8 +257,8 @@ a:hover { color: var(--text-primary); }
 .product-card img { width: 100%; aspect-ratio: 1 / 1; object-fit: cover; border-radius: 15px; background: var(--bg-shadow-dark); padding: 10px; margin-bottom: 15px; }
 .product-info { text-align: center; }
 .product-info h4 { color: var(--text-primary); margin: 0 0 5px; font-size: 18px; }
-.product-info input[type="text"] { width: 90%; text-align: center; background: transparent; border: none; color: var(--text-primary); font-size: 18px; font-weight: 700; margin: 0 0 5px; padding: 5px 0; border-radius: 5px; transition: background-color 0.2s ease; }
-.product-info input[type="text"]:focus { outline: none; background-color: var(--bg-shadow-light); }
+/*.product-info input[type="text"] { width: 90%; text-align: center; background: transparent; border: none; color: var(--text-primary); font-size: 18px; font-weight: 700; margin: 0 0 5px; padding: 5px 0; border-radius: 5px; transition: background-color 0.2s ease; }
+.product-info input[type="text"]:focus { outline: none; background-color: var(--bg-shadow-light); }*/
 .rating { color: var(--logo-yellow); margin-bottom: 10px; font-size: 1.1em; }
 .product-offer { font-size: 20px; font-weight: 700; color: var(--logo-pink); margin-bottom: 15px; display: block; text-transform: uppercase; }
 .buy-button { color: var(--text-primary); background-color: var(--logo-blue); width: 100%; }
