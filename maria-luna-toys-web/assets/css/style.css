@@ -1,0 +1,343 @@
+/* ===== PALETAS DE COLORES Y VARIABLES ===== */
+:root {
+    --bg-color: #000000;
+    --bg-shadow-dark: #ffffff;
+    --text-primary: #f5f6f6;
+    --text-secondary: #ffffff;
+    
+    /* Colores del logo y sus variantes oscuras para el contorno */
+    --logo-pink: #c74c7b;
+    --logo-pink-dark: #9e3d62; /* Rosa oscuro para contorno */
+    
+    --logo-blue: #4cb2c7;
+    --logo-blue-dark: #3b8e9b; /* Celeste oscuro para contorno */
+    
+    --logo-yellow: #f9d863;
+    --logo-yellow-dark: #c7ab4f; /* Amarillo oscuro para contorno */
+
+    --accent-color: var(--logo-pink);
+    --section-dark-bg: #000000;
+}
+
+/* ===== ESTILOS GENERALES Y FONDO DE PÁGINA ===== */
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    color: var(--text-secondary);
+    background-image: url('../images/fondo-pagina.jpg');
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+    background-color: var(--bg-color);
+    line-height: 1.7;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+img { max-width: 100%; display: block; }
+h1, h2, h3, h4 { color: var(--text-primary); font-weight: 700; }
+a { text-decoration: none; color: var(--text-secondary); transition: color 0.3s ease; }
+a:hover { color: var(--text-primary); }
+
+/* ===== ESTILOS NEUMÓRFICOS ===== */
+.neumorphic-element { background: var(--bg-color); border-radius: 20px; box-shadow: 10px 10px 20px var(--bg-shadow-dark), -10px -10px 20px var(--bg-shadow-light); }
+.neumorphic-element-inset { background: var(--bg-color); border-radius: 20px; padding: 10px; box-shadow: inset 8px 8px 15px var(--bg-shadow-dark), inset -8px -8px 15px var(--bg-shadow-light); }
+.neumorphic-button, .neumorphic-button-sm { display: inline-block; border-radius: 50px; transition: box-shadow 0.3s ease; cursor: pointer; font-weight: 600; text-align: center; border: none; background: transparent; padding: 12px 28px; color: var(--text-primary); }
+.neumorphic-button-sm { padding: 8px 16px; font-size: 14px; }
+.neumorphic-button:hover, .neumorphic-button-sm:hover { box-shadow: inset 5px 5px 10px var(--bg-shadow-dark), inset -5px -5px 10px var(--bg-shadow-light); }
+
+
+/* ===== HEADER (AHORA CON FONDO NEGRO Y LOGO GRANDE) ===== */
+.header {
+    padding: 15px 0;
+    position: sticky;
+    top: 15px;
+    z-index: 1000;
+    margin: 0 20px 20px;
+    border-radius: 20px;
+    background-color: var(--section-dark-bg);
+    box-shadow: 10px 10px 20px var(--bg-shadow-dark), -10px -10px 20px var(--bg-shadow-light);
+}
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.header .logo-img {
+    height: 85px;
+    width: auto;
+    margin-right: 20px;
+}
+.main-nav { display: flex; gap: 30px; }
+.main-nav a {
+    color: var(--text-primary);
+    font-weight: 600;
+    position: relative;
+    padding-bottom: 5px;
+}
+.main-nav a:hover { color: var(--text-secondary); }
+.main-nav a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--logo-blue);
+    transition: width 0.3s ease;
+}
+.main-nav a:hover::after { width: 100%; }
+
+.whatsapp-header-button { color: var(--text-primary); padding: 10px 20px; background-color: #25D366; box-shadow: 5px 5px 10px rgba(0,0,0,0.3), -5px -5px 10px rgba(255,255,255,0.05); }
+.whatsapp-header-button:hover { box-shadow: inset 5px 5px 10px rgba(0,0,0,0.3), inset -5px -5px 10px rgba(255,255,255,0.05); }
+.whatsapp-header-button i { margin-right: 8px; color: #fff; }
+
+
+/* ===== SECCIÓN HERO (CON BANNER DE FONDO BLANCO Y TEXTO DEL LOGO) ===== */
+.hero-section {
+    display: flex;
+    align-items: center;
+    padding: 80px 0;
+    gap: 40px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 20px;
+    margin-bottom: 80px;
+}
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('../images/hero-banner.jpg');
+    background-size: cover;
+    background-position: center;
+    filter: brightness(0.9) blur(8px) grayscale(100%);
+    z-index: -1;
+    transform: scale(1.05);
+}
+.hero-content { 
+    flex: 1; 
+    z-index: 1;
+    position: relative;
+}
+.hero-subtitle { 
+    font-weight: 600; 
+    color: var(--logo-yellow); /* TIENDA OFICIAL mantiene el amarillo */
+    text-transform: uppercase; 
+    letter-spacing: 1px; 
+    margin-bottom: 5px;
+}
+
+/* Contenedor del título MARIA LUNA TOYS */
+.hero-brand-title {
+    font-size: 55px; /* Aumentado a 55px */
+    font-weight: 900;
+    line-height: 1.1;
+    margin: 0 0 15px;
+    text-transform: uppercase;
+    display: flex; /* Para alinear las palabras una al lado de la otra */
+    justify-content: center; /* Centrar las palabras */
+    gap: 15px; /* Espacio entre palabras */
+    flex-wrap: wrap; /* Permitir que las palabras salten de línea en móviles */
+}
+
+/* Estilos para cada palabra */
+.hero-brand-title span {
+    display: inline-block; /* Necesario para aplicar text-shadow */
+}
+
+.hero-brand-title .word-maria {
+    color: var(--logo-pink);
+    text-shadow: 
+        -1px -1px 0 var(--logo-pink-dark),  /* Contorno oscuro */
+        1px -1px 0 var(--logo-pink-dark),
+        -1px 1px 0 var(--logo-pink-dark),
+        1px 1px 0 var(--logo-pink-dark),
+        0 0 10px var(--logo-pink),           /* Brillo suave */
+        0 0 20px rgba(199, 76, 123, 0.5);    /* Brillo más fuerte */
+}
+
+.hero-brand-title .word-luna {
+    color: var(--logo-blue);
+    text-shadow: 
+        -1px -1px 0 var(--logo-blue-dark),
+        1px -1px 0 var(--logo-blue-dark),
+        -1px 1px 0 var(--logo-blue-dark),
+        1px 1px 0 var(--logo-blue-dark),
+        0 0 10px var(--logo-blue),
+        0 0 20px rgba(76, 178, 199, 0.5);
+}
+
+.hero-brand-title .word-toys {
+    color: var(--logo-yellow);
+    text-shadow: 
+        -1px -1px 0 var(--logo-yellow-dark),
+        1px -1px 0 var(--logo-yellow-dark),
+        -1px 1px 0 var(--logo-yellow-dark),
+        1px 1px 0 var(--logo-yellow-dark),
+        0 0 10px var(--logo-yellow),
+        0 0 20px rgba(249, 216, 99, 0.5);
+}
+
+.hero-content h1 { font-size: 48px; line-height: 1.2; margin: 10px 0 20px; color: var(--text-primary); text-shadow: 0 0 10px rgba(0,0,0,0.5); }
+.hero-content h1 strong { color: var(--text-primary); }
+.hero-content p { font-size: 18px; max-width: 500px; margin-bottom: 30px; color: var(--text-primary); text-shadow: 0 0 5px rgba(0,0,0,0.5); }
+.cta-button { 
+    font-size: 18px; 
+    color: var(--text-primary); 
+    background-color: var(--logo-pink); 
+    border-radius: 50px; 
+}
+.cta-button:hover { background-color: var(--logo-blue); box-shadow: inset 5px 5px 10px var(--bg-shadow-dark), inset -5px -5px 10px var(--bg-shadow-light); }
+.hero-image { flex: 1; display: none; }
+@media (min-width: 992px) { .hero-image { display: block; } }
+
+
+/* ===== BARRA DE MARCAS (CON MARCO NEGRO Y TAMAÑO ESTÁNDAR) ===== */
+.brands-bar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+    margin-bottom: 80px;
+    flex-wrap: wrap;
+    gap: 25px;
+    background-color: var(--section-dark-bg);
+    box-shadow: 10px 10px 20px var(--bg-shadow-dark), -10px -10px 20px var(--bg-shadow-light);
+}
+
+.brands-bar .brand-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100px;
+    height: 100px;
+    border-radius: 15px;
+    background: var(--section-dark-bg);
+    border: 2px solid #3e414c;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+    padding: 10px;
+    overflow: hidden;
+}
+
+.brands-bar .brand-button img {
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+    filter: none;
+    transition: transform 0.3s ease;
+}
+
+.brands-bar .brand-button:hover {
+    border-color: var(--logo-pink);
+    transform: scale(1.05);
+}
+.brands-bar .brand-button:hover img {
+    transform: scale(1.1);
+}
+
+
+/* ===== SECCIONES DE PRODUCTOS ===== */
+.products-section { margin-bottom: 80px; }
+.products-section h2 { color: var(--text-primary); font-size: 36px; text-align: center; margin-bottom: 50px; }
+.brand-subtitle { font-size: 28px; margin-top: 60px; margin-bottom: 30px; padding-bottom: 10px; border-bottom: 2px solid var(--logo-blue); display: inline-block; color: var(--text-primary); }
+.product-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
+@media (max-width: 992px) { .product-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 480px) { .product-grid { grid-template-columns: 1fr; } }
+.product-card { padding: 15px; transition: transform 0.3s ease; }
+.product-card:hover { transform: translateY(-5px); }
+.product-card img { width: 100%; aspect-ratio: 1 / 1; object-fit: cover; border-radius: 15px; background: var(--bg-shadow-dark); padding: 10px; margin-bottom: 15px; }
+.product-info { text-align: center; }
+.product-info h4 { color: var(--text-primary); margin: 0 0 5px; font-size: 18px; }
+.product-info input[type="text"] { width: 90%; text-align: center; background: transparent; border: none; color: var(--text-primary); font-size: 18px; font-weight: 700; margin: 0 0 5px; padding: 5px 0; border-radius: 5px; transition: background-color 0.2s ease; }
+.product-info input[type="text"]:focus { outline: none; background-color: var(--bg-shadow-light); }
+.rating { color: var(--logo-yellow); margin-bottom: 10px; font-size: 1.1em; }
+.product-offer { font-size: 20px; font-weight: 700; color: var(--logo-pink); margin-bottom: 15px; display: block; text-transform: uppercase; }
+.buy-button { color: var(--text-primary); background-color: var(--logo-blue); width: 100%; }
+.buy-button:hover { background-color: var(--logo-pink); }
+.cta-whatsapp-section { display: flex; justify-content: space-between; align-items: center; padding: 40px; margin-bottom: 80px; flex-wrap: wrap; background-color: var(--section-dark-bg); border-radius: 20px; box-shadow: 10px 10px 20px var(--bg-shadow-dark), -10px -10px 20px var(--bg-shadow-light); }
+.cta-content h3 { color: var(--text-primary); font-size: 28px; margin: 0 0 10px; }
+.cta-button-whatsapp { background-color: #25D366; color: #fff; }
+.contact-section { display: flex; gap: 30px; margin-bottom: 80px; flex-wrap: wrap; }
+.contact-info { flex: 1; padding: 30px; min-width: 300px; background-color: var(--section-dark-bg); box-shadow: 10px 10px 20px var(--bg-shadow-dark), -10px -10px 20px var(--bg-shadow-light); }
+.contact-info p { display: flex; align-items: center; gap: 15px; font-size: 16px; }
+.contact-info i { font-size: 20px; color: var(--logo-yellow); }
+.contact-info h4 { color: var(--text-primary); }
+.payment-logos { display: flex; gap: 15px; margin-top: 10px; }
+.payment-logos img { height: 30px; filter: grayscale(50%) brightness(1.2); }
+.map-container { flex: 1.5; min-height: 400px; min-width: 300px; }
+.map-container iframe { border-radius: 15px; width: 100%; height: 100%; }
+.footer { padding: 20px 0; border-top: 1px solid var(--bg-shadow-light); }
+.footer .container { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px; }
+.social-icons { display: flex; gap: 15px; }
+.social-icons a { font-size: 16px; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; color: var(--text-secondary); }
+#scroll-to-top { position: fixed; bottom: 30px; right: 30px; width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; font-size: 20px; color: var(--text-primary); opacity: 0; visibility: hidden; transform: translateY(20px); transition: all 0.4s ease; z-index: 999; background-color: var(--logo-pink); }
+#scroll-to-top:hover { background-color: var(--logo-blue); }
+#scroll-to-top.show { opacity: 1; visibility: visible; transform: translateY(0); }
+.anim-fade-in { opacity: 0; transform: translateY(30px); transition: opacity 0.6s ease-out, transform 0.6s ease-out; }
+.anim-fade-in.visible { opacity: 1; transform: translateY(0); }
+@media (max-width: 992px) { .hero-section { flex-direction: column; text-align: center; } .hero-content p { margin: 0 auto 30px; } .main-nav { display: none; } }
+
+/* ===== SECCIÓN RESPONSIVA CORREGIDA PARA EL HEADER (AHORA CON LOGO CENTRADO) ===== */
+@media (max-width: 768px) {
+    .header { 
+        top: 0; 
+        margin: 0; 
+        border-radius: 0; 
+        padding: 10px 0;
+    }
+    .header-container {
+        justify-content: center; /* Centra el logo */
+        padding: 0 15px;
+        position: relative;
+    }
+    .main-nav { 
+        display: none;
+    }
+    .header .logo-img {
+        height: 85px;
+        width: 250px;
+        margin-right: 0;
+    }
+    
+    .whatsapp-header-button {
+        position: absolute;
+        right: 15px;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 44px;
+        height: 44px;
+        padding: 0;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .whatsapp-header-button span {
+        display: none;
+    }
+    .whatsapp-header-button i {
+        margin-right: 0;
+        font-size: 24px;
+    }
+    
+    .hero-brand-title {
+        font-size: 45px; /* Ajuste de tamaño para móviles */
+        gap: 10px; /* Menos espacio entre palabras en móvil */
+    }
+
+    .hero-content h1 { font-size: 32px; /* Ajuste de tamaño para móviles */ }
+    .hero-content p { font-size: 16px; /* Ajuste de tamaño para móviles */ }
+
+    .products-section h2 { font-size: 30px; }
+    .cta-whatsapp-section { justify-content: center; text-align: center; gap: 20px; }
+    .footer .container { flex-direction: column; gap: 15px; }
+}
